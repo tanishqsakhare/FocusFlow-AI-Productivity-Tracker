@@ -1,74 +1,57 @@
-# FocusFlow-AI-Productivity-Tracker
+# 🌟 FocusFlow: AI Productivity Tracker
 
-
-🧠 FocusFlow: AI Productivity Tracker
 > Your AI-powered productivity companion — helping you stay focused, manage tasks, and flow through your day with clarity and control.
 
+---
 
---------- 🚀 Features -------
+## 🚀 Features
 
+- 🔐 **User Authentication** — Secure login & registration system  
+- 🧾 **Personalized Task Management** — Each user gets their own private task list  
+- ⏱️ **Pomodoro Timer** — Boost focus with structured deep work sessions  
+- 🌙 **Dark & Light Mode Toggle** — Switch themes with a single click  
+- 🎨 **Animated UI** — Glowing buttons, floating shapes, and smooth transitions  
+- ✨ **Typing Animation** — Dynamic taglines that come to life  
+- 🧩 **Modular Design** — Clean folder structure and scalable codebase  
 
-🔐 User Registration & Login system
+---
 
-🧾 Personalized Task Management (per user)
+## 👤 How It Works
 
-⏱️ Built-in Pomodoro Timer for deep work
+1. Users register and log in securely  
+2. Each user sees only their own tasks  
+3. Tasks can be added, viewed, and managed in a distraction-free interface  
+4. The Pomodoro timer helps users stay in the zone  
+5. The UI adapts to light or dark mode based on user preference  
 
-🌙 Light & Dark Mode toggle
+---
 
-🎨 Animated UI with glowing buttons and floating shapes
+## 📁 Project Structure
 
-✨ Typing animation for dynamic taglines
+FocusFlow/ │ ├── app/ │ ├── routes.py # All Flask routes │ ├── forms.py # Login, Register, Task forms │ ├── templates/ # HTML templates (login, register, dashboard) │ └── static/ │ ├── css/ # Custom styles │ ├── js/ # TypeScript/JS animations │ └── images/ # (optional) icons or logos ├── run.py # App entry point ├── requirements.txt # Python dependencies └── README.md
 
-📦 Clean folder structure and scalable design
+---
 
- 
---------- 👤 How It Works ---------- 
+## 🛠️ Tech Stack
 
-Users can register and securely log in
+| Layer      | Tools Used                                |
+|------------|--------------------------------------------|
+| Frontend   | HTML, CSS, Bootstrap 5, TypeScript         |
+| Backend    | Python, Flask                              |
+| Forms      | Flask-WTF, WTForms                         |
+| Auth       | Flask Sessions                             |
+| Animation  | Animate.css, Lottie, Custom CSS            |
+| Versioning | Git + GitHub                               |
 
-Each user has their own private task list
+---
 
-Tasks are stored and displayed only for the logged-in user
+## 💡 Inspiration
 
-Users can add, view, and manage their tasks in a distraction-free interface
+FocusFlow was built to empower creators, students, and professionals to take control of their time. With a clean UI, AI-inspired interactions, and productivity science at its core, it’s more than a tracker — it’s your digital focus partner.
 
+---
 
-📁 Project Structure
+## 📬 Contact
 
-FocusFlow/
-│
-├── app/
-│   ├── routes.py         # All Flask routes
-│   ├── forms.py          # Login, Register, Task forms
-│   ├── templates/        # HTML templates (login, register, dashboard)
-│   └── static/
-│       ├── css/          # Custom styles
-│       ├── js/           # TypeScript/JS animations
-│       └── images/       # (optional) icons or logos
-├── run.py                # App entry point
-├── requirements.txt      # Python dependencies
-└── README.md
-
-
-🛠️ Tech Stack
-
-
-Frontend: HTML, CSS, Bootstrap 5, TypeScript
-
-Backend: Python, Flask
-
-Forms: Flask-WTF + WTForms
-
-Authentication: Flask sessions
-
-Animations: Animate.css, Lottie, custom CSS
-
-
-💡 Inspiration
-
-FocusFlow was built to help individuals stay in control of their time and tasks — combining clean design, AI-inspired interactions, and productivity science.
-
-📬 Contact
-
-Made with ❤️ by @tanishqsakhare Feel free to fork, star, or contribute!
+Made with ❤️ by [@tanishqsakhare](https://github.com/tanishqsakhare)  
+Feel free to ⭐ star, 🍴 fork, or contribute to the project!
