@@ -12,7 +12,7 @@
 - 🌙 **Dark & Light Mode Toggle** — Switch themes with a single click  
 - 🎨 **Animated UI** — Glowing buttons, floating shapes, and smooth transitions  
 - ✨ **Typing Animation** — Dynamic taglines that come to life  
-- 🧩 **Modular Design** — Clean folder structure and scalable codebase  
+- 🧩 **Modular Design** — Clean folder structure and scalable codebase
 
 ---
 
@@ -28,7 +28,19 @@
 
 ## 📁 Project Structure
 
-FocusFlow/ │ ├── app/ │ ├── routes.py # All Flask routes │ ├── forms.py # Login, Register, Task forms │ ├── templates/ # HTML templates (login, register, dashboard) │ └── static/ │ ├── css/ # Custom styles │ ├── js/ # TypeScript/JS animations │ └── images/ # (optional) icons or logos ├── run.py # App entry point ├── requirements.txt # Python dependencies └── README.md
+FocusFlow/
+│
+├── app/
+│   ├── routes.py         # All Flask routes
+│   ├── forms.py          # Login, Register, Task forms
+│   ├── templates/        # HTML templates (login, register, dashboard)
+│   └── static/
+│       ├── css/          # Custom styles
+│       ├── js/           # TypeScript/JS animations
+│       └── images/       # (optional) icons or logos
+├── run.py                # App entry point
+├── requirements.txt      # Python dependencies
+└── README.md
 
 ---
 
