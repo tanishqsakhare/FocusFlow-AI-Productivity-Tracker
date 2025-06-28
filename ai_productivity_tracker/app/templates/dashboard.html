@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - FocusFlow{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+
+  <!-- 🎯 Motivational Goal Animation -->
+  <div class="text-center mb-4">
+
+    <!-- Lottie animations side by side -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap mb-3">
+      <lottie-player 
+        src="https://assets10.lottiefiles.com/packages/lf20_qp1q7mct.json"
+        background="transparent" speed="1"
+        style="width: 200px; height: 200px;" loop autoplay>
+      </lottie-player>
+
+      <lottie-player 
+        src="https://assets10.lottiefiles.com/packages/lf20_3rwasyjy.json"
+        background="transparent" speed="1"
+        style="width: 200px; height: 200px;" loop autoplay>
+      </lottie-player>
+
+      <lottie-player 
+        src="https://assets10.lottiefiles.com/packages/lf20_1pxqjqps.json"
+        background="transparent" speed="1"
+        style="width: 200px; height: 200px;" loop autoplay>
+      </lottie-player>
+      </div>
+
+  <!-- Task header and motivational text -->
+  <div class="task-header">
+    <h2 class="text-center mb-2">Your Daily Tasks</h2>
+    <p class="text-center text-muted mb-2">Progress, not perfection!</p>
+  </div>
+
+  <div class="motivation-message">
+    <p class="text-center">🤖 {{ motivation }}</p>
+  </div>
+
+  <!-- Optional: AI Motivational Quote -->
+  <div class="alert alert-info mt-3 animate__animated animate__fadeIn">
+    <strong>Motivation:</strong> {{ motivation }}
+  </div>
+</div>
+
+  
+  <!-- 📊 Productivity Progress Bar -->
+  {% set total = tasks|length %}
+  {% set completed = tasks|selectattr("completed")|list|length %}
+  {% if total > 0 %}
+    {% set progress = (completed / total * 100)|round(0, 'floor') %}
+  {% else %}
+    {% set progress = 0 %}
+  {% endif %}
+
+  {% if total > 0 and completed == total %}
+  <div class="alert alert-success text-center p-2 mb-2 animate__animated animate__fadeIn">
+    🎉 Congratulations! You’ve completed all your tasks for today!
+    <div style="margin: 0 auto; width: 200px;">
+      <lottie-player
+        src="https://assets10.lottiefiles.com/packages/lf20_jbrw3hcz.json"
+        background="transparent" speed="1"
+        style="width: 100%; height: 200px;" autoplay>
+      </lottie-player>
+
+      <lottie-player
+        src="https://assets10.lottiefiles.com/packages/lf20_4kx2q32n.json"
+        background="transparent" speed="1"
+        style="width: 200px; height: 200px;" autoplay>
+      </lottie-player>
+    </div>
+    </div>
+
+  {% endif %}
+
+  <div class="mb-4">
+    <label class="form-label fw-bold">Productivity Progress: {{ progress }}%</label>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: progress;">
+        {{ completed }} / {{ total }} completed
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Task Add Form -->
+  <form method="POST" class="mb-4">
+    {{ form.hidden_tag() }}
+    <div class="input-group">
+      {{ form.content(class="form-control", placeholder="Add a new task...") }}
+      {{ form.submit(class="btn btn-primary") }}
+    </div>
+  </form>
+
+  <!-- 📋 Task List -->
+  <ul class="list-group">
+    {% for task in tasks %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>
+          {% if task.completed %}
+             <span class="text-success fw-bold animate__animated animate__bounceIn">
+                ✔ {{ task.content }}
+             </span>
+          {% else %}
+                {{ task.content }}
+          {% endif %}
+
+        </span>
+        <span>
+          <a href="{{ url_for('main.toggle_task', task_id=task.id) }}" class="btn btn-sm btn-outline-success">✓</a>
+          <a href="{{ url_for('main.delete_task', task_id=task.id) }}" class="btn btn-sm btn-outline-danger">🗑</a>
+        </span>
+      </li>
+    {% else %}
+      <p class="text-muted mt-3">No tasks yet. Start now!</p>
+    {% endfor %}
+  </ul>
+
+  <!-- ⏱️ Pomodoro Button -->
+  <div class="text-center mt-4">
+    <a href="{{ url_for('main.pomodoro') }}" class="btn btn-outline-dark btn-lg">⏱️ Open Pomodoro Timer</a>
+  </div>
+
+  <!-- 🔐 Logout -->
+  <div class="text-center mt-3">
+    <a href="{{ url_for('main.logout') }}" class="btn btn-link text-danger">Logout</a>
+  </div>
+
+</div>
+{% endblock %}
