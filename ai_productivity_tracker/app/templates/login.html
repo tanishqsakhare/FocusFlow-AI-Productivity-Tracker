@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 position-relative">
+  <!-- Floating shapes (optional for background effect) -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+
+  <div class="text-center p-4 rounded shadow bg-light animate__animated animate__fadeIn" style="z-index: 10; max-width: 400px; width: 100%;">
+    
+    <!-- 🎉 Confetti animation -->
+    <lottie-player
+      src="https://assets1.lottiefiles.com/private_files/lf30_mjlh3h0p.json"
+      background="transparent"
+      speed="1"
+      style="width: 100px; height: 100px;"
+      autoplay>
+    </lottie-player>
+
+    <h2 class="login-heading">
+        <span style="color: #000000;">Login to</span>
+        <span class="text-primary fw-bold"> FocusFlow</span>
+    </h2>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3 text-start">
+        {{ form.username.label(class="form-label", style="color: #2a2a2a;") }}
+        {{ form.username(class="form-control", style="background-color: #2a2a2a; color: #ffffff; border: 1px solid #555;") }}
+      </div>
+
+      <div class="mb-3 text-start">
+         {{ form.password.label(class="form-label", style="color: #2a2a2a;") }}
+         {{ form.password(class="form-control", style="background-color: #2a2a2a; color: #ffffff; border: 1px solid #555;") }}
+      </div>
+
+      <div class="d-grid">
+         {{ form.submit(class="btn btn-primary btn-custom") }}
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
