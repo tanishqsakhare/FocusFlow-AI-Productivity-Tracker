@@ -26,24 +26,6 @@
 
 ---
 
-## 📁 Project Structure
-
-FocusFlow/
-│
-├── app/
-│   ├── routes.py         # All Flask routes
-│   ├── forms.py          # Login, Register, Task forms
-│   ├── templates/        # HTML templates (login, register, dashboard)
-│   └── static/
-│       ├── css/          # Custom styles
-│       ├── js/           # TypeScript/JS animations
-│       └── images/       # (optional) icons or logos
-├── run.py                # App entry point
-├── requirements.txt      # Python dependencies
-└── README.md
-
----
-
 ## 🛠️ Tech Stack
 
 | Layer      | Tools Used                                |
