@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block title %}Pomodoro Timer - FocusFlow{% endblock %}
+
+{% block content %}
+<!-- Full screen centered Pomodoro layout -->
+<div class="d-flex justify-content-center align-items-center min-vh-100 position-relative">
+
+  <!-- Floating background shapes -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+
+  <!-- Main content -->
+  <div class="text-center animate__animated animate__fadeInUp" style="z-index: 10;">
+    
+    <!-- Lottie Animation -->
+    <div class="mb-3">
+      <lottie-player
+        src="https://assets1.lottiefiles.com/packages/lf20_j1adxtyb.json"
+        background="transparent"
+        speed="1"
+        style="width: 200px; height: 200px; margin: 0 auto;"
+        loop
+        autoplay>
+      </lottie-player>
+    </div>
+
+    <h2 class="mb-2">⏱️ Pomodoro Timer</h2>
+    <h4 class="typing-text mb-4 text-muted"></h4>
+
+    <div id="timer" class="display-4 mb-4 fw-bold">25:00</div>
+
+    <div class="mb-4">
+      <button class="btn btn-success btn-lg btn-animated mx-2" onclick="startTimer()">Start</button>
+      <button class="btn btn-warning btn-lg btn-animated mx-2" onclick="pauseTimer()" id="pauseBtn">Pause</button>
+      <button class="btn btn-danger btn-lg btn-animated mx-2" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <p class="text-muted fs-5">25 min focus → 5 min break. Stay consistent!</p>
+  </div>
+</div>
+
+<!-- Confetti and Lottie -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<!-- Typing animation -->
+<script>
+  const phrases = [
+    "Stay focused 💪",
+    "You got this! 👊",
+    "One Pomodoro at a time 🍅"
+  ];
+  let i = 0;
+  let j = 0;
+  let currentPhrase = [];
+  let isDeleting = false;
+  let isEnd = false;
+
+  function loopTyping() {
+    isEnd = false;
+    document.querySelector('.typing-text').innerHTML = currentPhrase.join('');
+
+    if (i < phrases.length) {
+      if (!isDeleting && j <= phrases[i].length) {
+        currentPhrase.push(phrases[i][j]);
+        j++;
+      }
+
+      if (isDeleting && j <= phrases[i].length) {
+        currentPhrase.pop();
+        j--;
+      }
+
+      if (j === phrases[i].length) {
+        isEnd = true;
+        isDeleting = true;
+      }
+
+      if (isDeleting && j === 0) {
+        currentPhrase = [];
+        isDeleting = false;
+        i++;
+        if (i === phrases.length) i = 0;
+      }
+    }
+
+    const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+    setTimeout(loopTyping, speed);
+  }
+
+  loopTyping();
+</script>
+
+<!-- Pomodoro Timer JS -->
+<script>
+  let timeLeft = 1500; // 25 minutes
+  let timerInterval = null;
+  let isPaused = false;
+
+  function formatTime(seconds) {
+    let mins = Math.floor(seconds / 60);
+    let secs = seconds % 60;
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  function updateDisplay() {
+    document.getElementById('timer').innerText = formatTime(timeLeft);
+  }
+
+  function startTimer() {
+    if (timerInterval) return;
+
+    timerInterval = setInterval(() => {
+      if (!isPaused && timeLeft > 0) {
+        timeLeft--;
+        updateDisplay();
+      } else if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        confetti();
+        setTimeout(() => {
+          alert("⏰ Time's up! Take a break.");
+        }, 300);
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    isPaused = !isPaused;
+    document.getElementById('pauseBtn').innerText = isPaused ? "Resume" : "Pause";
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timeLeft = 1500;
+    isPaused = false;
+    document.getElementById('pauseBtn').innerText = "Pause";
+    updateDisplay();
+  }
+
+  updateDisplay();
+</script>
+
+<!-- Optional shapes styling (add in base.css or here directly) -->
+<style>
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+
+  .shape1 {
+    width: 200px;
+    height: 200px;
+    background-color: #007bff;
+    top: 10%;
+    left: 10%;
+  }
+
+  .shape2 {
+    width: 300px;
+    height: 300px;
+    background-color: #28a745;
+    bottom: 10%;
+    right: 10%;
+  }
+</style>
+{% endblock %}
