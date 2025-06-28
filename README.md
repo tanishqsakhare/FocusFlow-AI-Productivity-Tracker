@@ -4,6 +4,7 @@
 > Your AI-powered productivity companion — helping you stay focused, manage tasks, and flow through your day with clarity and control.
 
 🚀 Features
+
 🔐 User Registration & Login system
 
 🧾 Personalized Task Management (per user)
