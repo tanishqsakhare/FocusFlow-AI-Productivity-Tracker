@@ -49,3 +49,5 @@ FocusFlow was built to empower creators, students, and professionals to take con
 
 Made with ❤️ by [@tanishqsakhare](https://github.com/tanishqsakhare)  
 Feel free to ⭐ star, 🍴 fork, or contribute to the project!
+
+---
