@@ -1,6 +1,6 @@
 # 🌟 FocusFlow: AI Productivity Tracker
 
-> Your AI-powered productivity companion — helping you stay focused, manage tasks, and flow through your day with clarity and control.
+> Your AI-powered productivity companion, helping you stay focused, manage tasks, and flow through your day with clarity and control.
 
 ---
 
