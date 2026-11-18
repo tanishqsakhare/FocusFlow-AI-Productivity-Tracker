@@ -41,7 +41,7 @@
 
 ## 💡 Inspiration
 
-FocusFlow was built to empower creators, students, and professionals to take control of their time. With a clean UI, AI-inspired interactions, and productivity science at its core, it’s more than a tracker — it’s your digital focus partner.
+FocusFlow was built to empower creators, students, and professionals to take control of their time. With a clean UI, AI-inspired interactions, and productivity science at its core, it’s more than a tracker, it’s your digital focus partner.
 
 ---
 
